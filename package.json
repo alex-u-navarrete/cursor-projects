@@ -1,0 +1,14 @@
+{
+  "name": "la-weather-live-demo",
+  "version": "1.0.0",
+  "description": "Beautiful real-time weather website for Los Angeles with dynamic atmospheric backgrounds",
+  "main": "project/index.html",
+  "scripts": {
+    "start": "cd project && python3 -m http.server 8000",
+    "deploy": "surge project la-weather-live-demo.surge.sh"
+  },
+  "keywords": ["weather", "los-angeles", "responsive", "real-time"],
+  "author": "LA Weather Team",
+  "license": "MIT",
+  "homepage": "https://la-weather-live-demo.surge.sh"
+}
