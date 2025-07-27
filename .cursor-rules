@@ -1,0 +1,26 @@
+# Custom Cursor Rules for Tutorial Project
+# These rules customize how Cursor behaves in this workspace
+
+# Code Style Preferences
+- Always use modern ES6+ JavaScript syntax
+- Prefer const/let over var
+- Use arrow functions when appropriate
+- Include JSDoc comments for functions
+
+# Best Practices
+- Add error handling to all async operations
+- Use semantic HTML5 elements
+- Ensure responsive design principles
+- Include accessibility attributes
+
+# Project-Specific Rules
+- When creating CSS, use CSS Grid and Flexbox
+- For animations, prefer CSS transitions over JavaScript
+- Always include loading states for API calls
+- Use meaningful variable and function names
+
+# Tutorial Context
+- Explain code when generating complex solutions
+- Suggest improvements and alternatives
+- Include comments that help learning
+- Break down complex concepts into steps 
