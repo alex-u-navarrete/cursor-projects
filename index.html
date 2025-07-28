@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA Weather | Live Los Angeles Weather Conditions</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>LA Weather</h1>
+            <ul>
+                <li><a href="#current">Current</a></li>
+                <li><a href="#conditions">Conditions</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="current">
+            <h2>Current Weather in Los Angeles</h2>
+            <article class="widget" id="temperature-display">
+                <h3>Temperature</h3>
+                <p id="temp-value">Loading...</p>
+            </article>
+            
+            <article class="widget" id="conditions-display">
+                <h3>Current Conditions</h3>
+                <p id="conditions-value">Fetching weather data...</p>
+            </article>
+        </section>
+
+        <section id="conditions">
+            <h2>Weather Details</h2>
+            <article class="widget" id="time-display">
+                <h3>Local Time</h3>
+                <p id="time-value">--:-- --</p>
+            </article>
+        </section>
+
+        <section id="about">
+            <h2>About This Weather App</h2>
+            <div class="action-buttons">
+                <button onclick="location.reload()">Refresh Weather</button>
+                <button onclick="window.open('https://open-meteo.com', '_blank')">Weather API</button>
+                <button onclick="alert('Dynamic backgrounds change based on current LA weather and time!')">Background Info</button>
+            </div>
+        </section>
+
+        <section id="atmosphere">
+            <h2>Atmospheric Mood</h2>
+            <article class="widget">
+                <h3>Dynamic Background</h3>
+                <p>The background color automatically adjusts based on Los Angeles weather conditions and time of day, creating an immersive atmospheric experience.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text">
+            <span class="copyright">&copy; 2024 LA Weather</span>
+            <span class="tagline">Real-time Los Angeles Weather</span>
+        </p>
+    </footer>
+</body>
+</html>
