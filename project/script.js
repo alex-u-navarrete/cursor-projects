@@ -13,8 +13,25 @@ class PersonalDashboard {
     
     initializeApp() {
         console.log('Dashboard starting...');
+        
+        // Immediately restore last known background to prevent flash
+        this.restoreLastBackground();
+        
         // Call the weather function to test it
         this.getWeatherData();
+    }
+    
+    restoreLastBackground() {
+        const lastBackground = localStorage.getItem('weatherBackground');
+        if (lastBackground) {
+            document.body.style.background = lastBackground;
+            console.log('Restored cached background:', lastBackground);
+        }
+    }
+    
+    cacheBackground(gradient) {
+        localStorage.setItem('weatherBackground', gradient);
+        console.log('Cached background:', gradient);
     }
     
     getWeatherData() {
@@ -90,6 +107,9 @@ class PersonalDashboard {
                 
                 document.body.style.background = backgroundGradient;
                 
+                // Cache the new background for next page load
+                this.cacheBackground(backgroundGradient);
+                
                 // Update DOM elements with weather data
                 this.updateWeatherDisplay(temp, isDaytime, currentHour, currentData.current_weather);
                 
@@ -106,7 +126,9 @@ class PersonalDashboard {
             .catch(error => {
                 console.error('Error fetching weather:', error);
                 // Fallback to default dark theme
-                document.body.style.background = 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)';
+                const fallbackGradient = 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)';
+                document.body.style.background = fallbackGradient;
+                this.cacheBackground(fallbackGradient);
             });
         // Type: "fetch weather data from API"
         // Watch Cursor build the entire function
