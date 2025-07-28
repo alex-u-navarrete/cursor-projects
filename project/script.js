@@ -152,15 +152,24 @@ class PersonalDashboard {
         // Update local time display
         const timeElement = document.getElementById('time-value');
         if (timeElement) {
-            const now = new Date();
-            const timeString = now.toLocaleString('en-US', {
-                timeZone: 'America/Los_Angeles',
-                hour: 'numeric',
-                minute: '2-digit',
-                hour12: true,
-                weekday: 'long'
-            });
-            timeElement.textContent = timeString;
+            // Use a function to get the most current time when the element is updated
+            const updateTime = () => {
+                const now = new Date();
+                const timeString = now.toLocaleString('en-US', {
+                    timeZone: 'America/Los_Angeles',
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    hour12: true,
+                    weekday: 'long'
+                });
+                timeElement.textContent = timeString;
+            };
+            
+            // Update immediately
+            updateTime();
+            
+            // Update every 30 seconds to keep time current
+            setInterval(updateTime, 30000);
         }
     }
     
@@ -215,8 +224,8 @@ class PersonalDashboard {
                 <div class="forecast-date">${dayName}<br><span style="font-size: 0.8em; opacity: 0.9; color: var(--text-muted);">${monthDay}</span></div>
                 <div class="forecast-icon">${weatherInfo.icon}</div>
                 <div class="forecast-temps">
-                    <span class="forecast-high">${maxTemp}°</span>
-                    <span class="forecast-low">${minTemp}°</span>
+                    <span class="forecast-high">High ${maxTemp}°</span>
+                    <span class="forecast-low">Low ${minTemp}°</span>
                 </div>
                 <div class="forecast-desc">${weatherInfo.description}</div>
                 <div class="forecast-details">
