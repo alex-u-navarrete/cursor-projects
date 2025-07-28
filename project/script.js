@@ -183,8 +183,21 @@ class PersonalDashboard {
         
         // Create forecast cards for each day
         for (let i = 0; i < Math.min(7, forecastData.daily.time.length); i++) {
-            const date = new Date(forecastData.daily.time[i]);
-            const dayName = i === 0 ? 'Today' : date.toLocaleDateString('en-US', { weekday: 'short' });
+            // Parse the date string from the API (YYYY-MM-DD format)
+            const dateString = forecastData.daily.time[i];
+            const date = new Date(dateString + 'T12:00:00'); // Add noon time to avoid timezone issues
+            
+            // Get today's date in Los Angeles timezone
+            const today = new Date();
+            const todayLA = new Date(today.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+            const todayDateString = todayLA.getFullYear() + '-' + 
+                                    String(todayLA.getMonth() + 1).padStart(2, '0') + '-' + 
+                                    String(todayLA.getDate()).padStart(2, '0');
+            
+            // Check if this forecast date is today by comparing date strings
+            const isToday = dateString === todayDateString;
+            
+            const dayName = isToday ? 'Today' : date.toLocaleDateString('en-US', { weekday: 'short' });
             const monthDay = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
             
             const maxTemp = Math.round(forecastData.daily.temperature_2m_max[i]);
