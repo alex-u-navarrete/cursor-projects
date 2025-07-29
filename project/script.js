@@ -6,6 +6,7 @@
 class PersonalDashboard {
     constructor() {
         this.initializeApp();
+        this.activities = this.initializeActivities();
     }
 
     // Type a comment here describing a new method you want
@@ -19,6 +20,183 @@ class PersonalDashboard {
         
         // Call the weather function to test it
         this.getWeatherData();
+    }
+    
+    initializeActivities() {
+        return {
+            // Hot weather activities (85°F+)
+            hot: [
+                {
+                    title: "Visit Santa Monica Pier",
+                    description: "Enjoy the ocean breeze, iconic rides, and street performers at this world-famous pier. Perfect for beating the heat!",
+                    icon: "🎡",
+                    type: "Outdoor",
+                    duration: "2-4 hours",
+                    link: "https://www.santamonicapier.org/"
+                },
+                {
+                    title: "Venice Beach Boardwalk",
+                    description: "Stroll along the famous boardwalk, watch street performers, and cool off with ocean views.",
+                    icon: "🏖️",
+                    type: "Outdoor",
+                    duration: "1-3 hours",
+                    link: "https://www.visitvenice.com/"
+                },
+                {
+                    title: "Getty Center",
+                    description: "Explore world-class art collections in air-conditioned galleries with stunning city views.",
+                    icon: "🎨",
+                    type: "Indoor",
+                    duration: "2-4 hours",
+                    link: "https://www.getty.edu/visit/center/"
+                },
+                {
+                    title: "California Science Center",
+                    description: "Interactive exhibits and IMAX movies in a cool, indoor environment perfect for hot days.",
+                    icon: "🔬",
+                    type: "Indoor",
+                    duration: "3-5 hours",
+                    link: "https://californiasciencecenter.org/"
+                },
+                {
+                    title: "Third Street Promenade",
+                    description: "Shop, dine, and people-watch at this outdoor pedestrian mall with plenty of shade.",
+                    icon: "🛍️",
+                    type: "Mixed",
+                    duration: "2-4 hours",
+                    link: "https://www.downtownsm.com/third-street-promenade"
+                }
+            ],
+            // Warm weather activities (75-84°F)
+            warm: [
+                {
+                    title: "Griffith Observatory",
+                    description: "Explore the cosmos and enjoy panoramic views of LA from this iconic observatory.",
+                    icon: "🔭",
+                    type: "Mixed",
+                    duration: "2-3 hours",
+                    link: "https://griffithobservatory.org/"
+                },
+                {
+                    title: "Hollywood Walk of Fame",
+                    description: "Find your favorite stars on the sidewalk and visit the famous TCL Chinese Theatre.",
+                    icon: "⭐",
+                    type: "Outdoor",
+                    duration: "1-2 hours",
+                    link: "https://walkoffame.com/"
+                },
+                {
+                    title: "Los Angeles County Museum of Art",
+                    description: "Discover incredible art collections and the famous Urban Light installation.",
+                    icon: "🏛️",
+                    type: "Indoor",
+                    duration: "2-4 hours",
+                    link: "https://www.lacma.org/"
+                },
+                {
+                    title: "Beverly Hills & Rodeo Drive",
+                    description: "Window shop on the most famous shopping street and explore luxurious Beverly Hills.",
+                    icon: "💎",
+                    type: "Outdoor",
+                    duration: "2-3 hours",
+                    link: "https://www.beverlyhills.org/"
+                },
+                {
+                    title: "Runyon Canyon Hike",
+                    description: "Popular hiking trail with great views of the Hollywood Sign and downtown LA.",
+                    icon: "🥾",
+                    type: "Outdoor",
+                    duration: "1-2 hours",
+                    link: "https://www.laparks.org/griffithpark/runyon-canyon"
+                }
+            ],
+            // Cool weather activities (60-74°F)
+            cool: [
+                {
+                    title: "Explore Downtown LA",
+                    description: "Visit Grand Central Market, Walt Disney Concert Hall, and the Arts District.",
+                    icon: "🏙️",
+                    type: "Mixed",
+                    duration: "4-6 hours",
+                    link: "https://www.discoverlosangeles.com/neighborhoods/downtown-la"
+                },
+                {
+                    title: "Los Angeles Zoo",
+                    description: "Perfect weather for walking around and seeing animals from around the world.",
+                    icon: "🦁",
+                    type: "Outdoor",
+                    duration: "3-4 hours",
+                    link: "https://www.lazoo.org/"
+                },
+                {
+                    title: "Melrose Avenue Shopping",
+                    description: "Browse unique boutiques, vintage stores, and trendy cafes on this famous street.",
+                    icon: "👗",
+                    type: "Outdoor",
+                    duration: "2-4 hours",
+                    link: "https://melroseavenue.com/"
+                },
+                {
+                    title: "Exposition Park",
+                    description: "Visit multiple museums including Natural History Museum and California African American Museum.",
+                    icon: "🌳",
+                    type: "Mixed",
+                    duration: "3-5 hours",
+                    link: "https://www.expositionpark.ca.gov/"
+                },
+                {
+                    title: "Venice Canals",
+                    description: "Take a peaceful walk through the historic Venice Canal District.",
+                    icon: "🚤",
+                    type: "Outdoor",
+                    duration: "1-2 hours",
+                    link: "https://www.discoverlosangeles.com/neighborhood/venice"
+                }
+            ],
+            // Chilly weather activities (under 60°F)
+            chilly: [
+                {
+                    title: "Universal Studios Hollywood",
+                    description: "Indoor shows, warm theaters, and exciting rides to keep you comfortable.",
+                    icon: "🎬",
+                    type: "Mixed",
+                    duration: "Full day",
+                    link: "https://www.universalstudioshollywood.com/"
+                },
+                {
+                    title: "Museum Row on Miracle Mile",
+                    description: "Explore multiple world-class museums along Wilshire Boulevard.",
+                    icon: "🏛️",
+                    type: "Indoor",
+                    duration: "4-6 hours",
+                    link: "https://www.miraclemile360.com/"
+                },
+                {
+                    title: "The Original Farmers Market",
+                    description: "Browse local vendors and enjoy warm comfort food at this historic market.",
+                    icon: "🥗",
+                    type: "Indoor",
+                    duration: "1-3 hours",
+                    link: "https://www.farmersmarketla.com/"
+                },
+                {
+                    title: "Warner Bros. Studio Tour",
+                    description: "Go behind the scenes of your favorite movies and TV shows in comfortable indoor settings.",
+                    icon: "🎭",
+                    type: "Indoor",
+                    duration: "2-3 hours",
+                    link: "https://www.wbstudiotour.com/"
+                },
+                {
+                    title: "The Broad Museum",
+                    description: "Enjoy contemporary art in a beautiful, climate-controlled environment.",
+                    icon: "🎨",
+                    type: "Indoor",
+                    duration: "2-3 hours",
+                    link: "https://www.thebroad.org/"
+                }
+            ]
+        };
     }
     
     restoreLastBackground() {
@@ -116,6 +294,9 @@ class PersonalDashboard {
                 // Update 7-day forecast
                 this.updateForecastDisplay(forecastData);
                 
+                // Update activity recommendations based on weather
+                this.updateActivityRecommendations(temp, isDaytime, currentData.current_weather);
+                
                 return {
                     temperature: temp,
                     isDaytime: isDaytime,
@@ -129,9 +310,85 @@ class PersonalDashboard {
                 const fallbackGradient = 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)';
                 document.body.style.background = fallbackGradient;
                 this.cacheBackground(fallbackGradient);
+                
+                // Show error message for activities
+                this.showActivityError();
             });
         // Type: "fetch weather data from API"
         // Watch Cursor build the entire function
+    }
+    
+    updateActivityRecommendations(temp, isDaytime, weatherData) {
+        const container = document.getElementById('activity-recommendations');
+        if (!container) return;
+        
+        // Create weather context message
+        const weatherContext = document.createElement('div');
+        weatherContext.className = 'weather-context';
+        
+        const tempDescription = this.getTemperatureDescription(temp);
+        const timeOfDay = isDaytime ? 'day' : 'night';
+        
+        weatherContext.innerHTML = `
+            <h3>🌡️ ${Math.round(temp)}°F - ${tempDescription} ${timeOfDay}time</h3>
+            <p>Here are some perfect activities for today's weather in Los Angeles:</p>
+        `;
+        
+        // Get recommended activities based on temperature
+        let recommendedActivities;
+        if (temp >= 85) {
+            recommendedActivities = this.activities.hot;
+        } else if (temp >= 75) {
+            recommendedActivities = this.activities.warm;
+        } else if (temp >= 60) {
+            recommendedActivities = this.activities.cool;
+        } else {
+            recommendedActivities = this.activities.chilly;
+        }
+        
+        // Shuffle and take 3 random activities
+        const shuffled = [...recommendedActivities].sort(() => 0.5 - Math.random());
+        const selectedActivities = shuffled.slice(0, 3);
+        
+        // Create activity grid
+        const activityGrid = document.createElement('div');
+        activityGrid.className = 'activity-grid';
+        
+        selectedActivities.forEach(activity => {
+            const activityCard = document.createElement('div');
+            activityCard.className = 'activity-card';
+            
+            activityCard.innerHTML = `
+                <div class="activity-icon">${activity.icon}</div>
+                <h3 class="activity-title">${activity.title}</h3>
+                <p class="activity-description">${activity.description}</p>
+                <div class="activity-details">
+                    <span class="activity-type">${activity.type}</span>
+                    <span class="activity-duration">⏱️ ${activity.duration}</span>
+                </div>
+                <div style="margin-top: 1rem; text-align: center;">
+                    <a href="${activity.link}" target="_blank" class="activity-action-btn">Learn More</a>
+                </div>
+            `;
+            
+            activityGrid.appendChild(activityCard);
+        });
+        
+        // Clear container and add new content
+        container.innerHTML = '';
+        container.appendChild(weatherContext);
+        container.appendChild(activityGrid);
+    }
+    
+    showActivityError() {
+        const container = document.getElementById('activity-recommendations');
+        if (!container) return;
+        
+        container.innerHTML = `
+            <div class="loading-activities">
+                ⚠️ Unable to load activity recommendations. Please try refreshing the page.
+            </div>
+        `;
     }
     
     updateWeatherDisplay(temp, isDaytime, currentHour, weatherData) {
